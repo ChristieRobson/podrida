@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import {
   BrowserRouter as Router,
@@ -29,6 +29,14 @@ interface MatchParams {
 interface MatchProps extends RouteComponentProps<MatchParams> {}
 
 function App() {
+  const [readArticles, updateReadArticles] = useState([] as string[]);
+
+  const markAsRead = (id:string) => {
+    if (!readArticles.includes(id)) {
+      updateReadArticles(readArticles.concat([id]));
+    }
+  }
+
   return (
     <QueryClientProvider client={queryClient}>
       <div className="App">
@@ -38,12 +46,12 @@ function App() {
         <Router>
           <Switch>
             <Route exact path="/">
-              <HomePage />
+              <HomePage readArticles={readArticles}/>
             </Route>
             <Route
               path="/article/:id"
               render={({ match }: MatchProps) => {
-                return <ArticlePage id={match.params.id} />;
+                return <ArticlePage id={match.params.id} markAsRead={markAsRead}/>;
               }}>
             </Route>
             <Redirect path="/" to="/"/>

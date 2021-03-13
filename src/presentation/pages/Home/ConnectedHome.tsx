@@ -2,7 +2,10 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import Home from './Home';
 
-const PureConnectedHome = () => {
+interface Props {
+    readArticles: Array<string>,
+}
+const PureConnectedHome = ({ readArticles }: Props) => {
     const { isLoading, error, data }  = useQuery('articlesData', () =>
         fetch('https://s3-eu-west-1.amazonaws.com/olio-staging-images/developer/test-articles-v4.json').then((res:any) =>
             res.json()
@@ -14,7 +17,7 @@ const PureConnectedHome = () => {
     if (error) return (<>An error has occurred</>);
 
     return (
-        <Home articles={data}/>
+        <Home articles={data} readArticles={readArticles}/>
     );
 };
 

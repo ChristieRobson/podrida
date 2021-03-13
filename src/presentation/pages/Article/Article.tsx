@@ -1,19 +1,21 @@
 import React from 'react';
-import { Link } from  'react-router-dom';
 import type { Article } from '../../../core/article';
 
 export interface Props {
  article: Article;
+ handleReturn: () => void;
 }
 
-const PureArticle = ({article}: Props) => (
+const PureArticle = ({article, handleReturn}: Props) => (
     <>
-        <Link to="/">Back to articles</Link>
+        <button type="button" onClick={handleReturn}>
+            Return to articles
+        </button>
         <h1>{article.title}</h1>
         <p>{article.description}</p>
     </>
 );
 
-PureArticle.displayName = 'Home';
+PureArticle.displayName = 'Article';
 
 export default PureArticle;
