@@ -6,7 +6,7 @@ import * as testArticle from './mocks/article.json';
 import Article from '../presentation/components/Article';
 
 export default {
-  title: 'Component/Article',
+  title: 'Components/Article',
   component: Article,
 } as Meta;
 
