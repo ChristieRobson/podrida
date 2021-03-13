@@ -12,7 +12,15 @@ import './App.css';
 import HomePage from './presentation/pages/Home';
 import ArticlePage from './presentation/pages/Article';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      //  expect this data to (for demo purposes at least) to not change very often, so don't keep refetching it
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+    },
+  },
+});
 
 interface MatchParams {
   id: string;

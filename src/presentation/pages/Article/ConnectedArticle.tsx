@@ -8,11 +8,12 @@ interface Props {
 }
 
 const PureConnectedArticle= ({ id }: Props) => {
+
     const { isLoading, error, data: articles }  = useQuery('articlesData', () =>
         fetch('https://s3-eu-west-1.amazonaws.com/olio-staging-images/developer/test-articles-v4.json').then((res:any) =>
             res.json()
         )
-    )
+    );
 
     if (isLoading) return (<>Loading...</>);
  
