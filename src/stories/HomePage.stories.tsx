@@ -15,6 +15,7 @@ const Template: Story<any> = (args) => <HomePage {...args} />;
 
 export const WithData = Template.bind({});
 WithData.args = {
+  // @ts-ignore
   articles: testArticles.default,
 };
 

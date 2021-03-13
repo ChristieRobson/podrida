@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { useQuery } from 'react-query';
-import fetchJsonP from 'fetch-jsonp';
 import Home from './Home';
 
 const PureConnectedHome = () => {

@@ -15,6 +15,7 @@ const Template: Story<any> = (args) => <Map {...args} />;
 
 export const WithArticles = Template.bind({});
 WithArticles.args = {
+  // @ts-ignore
   articles: testArticles.default,
 };
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from  'react-router-dom';
 import type { Article } from '../../../core/article';
 
 export interface Props {
@@ -7,8 +8,9 @@ export interface Props {
 
 const PureArticle = ({article}: Props) => (
     <>
+        <Link to="/">Back to articles</Link>
         <h1>{article.title}</h1>
-        <p>Some other article stuff will go here</p>
+        <p>{article.description}</p>
     </>
 );
 

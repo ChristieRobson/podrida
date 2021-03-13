@@ -3,10 +3,10 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import * as testArticle from './mocks/article.json';
 
-import Article from '../presentation/components/Article';
+import Article from '../presentation/pages/Article/Article';
 
 export default {
-  title: 'Components/Article',
+  title: 'Pages/Article',
   component: Article,
 } as Meta;
 
@@ -15,6 +15,7 @@ const Template: Story<any> = (args) => <Article {...args} />;
 
 export const Example = Template.bind({});
 Example.args = {
+  // @ts-ignore
   article: testArticle.default,
 };
 
