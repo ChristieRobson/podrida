@@ -1,16 +1,12 @@
 import React from 'react';
-import { useQuery } from 'react-query';
+import { useArticles } from '../../../queries/useArticles';
 import Home from './Home';
 
 interface Props {
     readArticles: Array<string>,
 }
 const PureConnectedHome = ({ readArticles }: Props) => {
-    const { isLoading, error, data }  = useQuery('articlesData', () =>
-        fetch('https://s3-eu-west-1.amazonaws.com/olio-staging-images/developer/test-articles-v4.json').then((res:any) =>
-            res.json()
-        )
-    )
+    const { isLoading, error, data }  = useArticles();
 
     if (isLoading) return (<>Loading...</>);
  
