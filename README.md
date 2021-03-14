@@ -33,6 +33,9 @@ This will show you whether there have been any changes since the last snapshot w
 ```
 yarn backstop:approve
 ```
+### Other tests
+
+Run `yarn test`
 
 ## Project setup
 
