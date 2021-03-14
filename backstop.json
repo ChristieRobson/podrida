@@ -16,9 +16,26 @@
   "onReadyScript": "puppet/onReady.js",
   "scenarios": [
     {
+      "label": "Components / ArticleHighlights - when read",
+      "url": "http://localhost:6006/iframe.html?id=components-articlehighlights--seen"
+    },
+    {
+      "label": "Components / ArticleHighlights - when unread",
+      "url": "http://localhost:6006/iframe.html?id=components-articlehighlights--new"
+    },
+    {
       "label": "Components / Map",
       "url": "http://localhost:6006/iframe.html?id=components-map--with-articles&viewMode=story",
       "delay": 3000
+    },
+    {
+      "label": "Pages / Home",
+      "url": "http://localhost:6006/iframe.html?id=pages-home--with-data",
+      "delay": 3000
+    },
+    {
+      "label": "Pages / Article",
+      "url": "http://localhost:6006/iframe.html?id=pages-article--example"
     }
   ],
   "paths": {

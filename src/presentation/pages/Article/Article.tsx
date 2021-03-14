@@ -1,4 +1,5 @@
 import React from 'react';
+import './Article.css';
 import type { Article } from '../../../core/article';
 
 export interface Props {
@@ -8,11 +9,29 @@ export interface Props {
 
 const PureArticle = ({article, handleReturn}: Props) => (
     <>
-        <button type="button" onClick={handleReturn}>
-            Return to articles
+        <button type="button" onClick={handleReturn} className="Nav-button">
+            &larr;  Return to articles
         </button>
-        <h1>{article.title}</h1>
-        <p>{article.description}</p>
+        <div className="Article_container">
+            <div>
+                <div className="Article_image-wrapper">
+                    <img src={article.images[0].files.medium} alt='' className="Article_image"/>
+                </div>
+                <div className="Article_details">
+                    
+                    <h1>{article.title}</h1>
+                    <p>{article.description}</p>
+                    <p>Likes: {article.reactions?.likes}</p>
+                    <p>Views: {article.reactions?.views}</p>
+                    <div className="Article-user">
+                        <img src={article.user.current_avatar.small} alt='' height="40" width="40" className='Article-avatar'/>
+                        <div className="Article-user_name">
+                            {article.user.first_name}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </>
 );
 

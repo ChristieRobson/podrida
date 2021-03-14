@@ -7,7 +7,6 @@ import {
   Redirect,
   RouteComponentProps,
 } from "react-router-dom";
-import logo from './logo.svg';
 import './App.css';
 import HomePage from './presentation/pages/Home';
 import ArticlePage from './presentation/pages/Article';
@@ -41,7 +40,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          podrida
         </header>
         <Router>
           <Switch>

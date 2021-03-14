@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from  'react-router-dom';
+import './Home.css';
 import Map from '../../components/Map';
 import type { Articles } from '../../../core/article';
+import ArticleHighlights from '../../components/ArticleHighlights';
 
 interface Props {
  articles: Articles;
@@ -12,21 +13,21 @@ const PureHome = ({
     articles,
     readArticles,
 }: Props) => (
-    <>
-        <h1>Here are some articles</h1>
-        <Map articles={articles}/>
-
-        <ul>
-            {articles.map((article) => (
-                <Link to={`/article/${article.id}`}  key={article.id}>
-                    <li>
-                        {article.title} { ' ' }
-                        {readArticles.includes(article.id.toString()) ? 'read' : 'new'}
-                    </li>
-                </Link>
-            ))}
-        </ul>
-    </>
+    <div className="Home-container">
+        <div>
+            <h1>Items to collect in your area</h1>
+            <Map articles={articles}/>
+            <ul>
+                {articles.map((article) => (
+                    <ArticleHighlights 
+                        key={article.id}
+                        article={article}
+                        read={readArticles && readArticles.includes(article.id.toString())}
+                    />
+                ))}
+            </ul>
+        </div>
+    </div>
 );
 
 PureHome.displayName = 'Home';
